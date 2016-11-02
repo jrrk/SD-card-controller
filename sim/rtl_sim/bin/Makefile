@@ -44,7 +44,7 @@
 V ?= @
 VCD ?= 0
 
-MODELSIM_DIR ?= /opt/altera/11.0/modelsim_ase
+MODELSIM_DIR ?= /usr/groups/ecad/mentor/modelsim/modelsimSE6.5c/modeltech
 
 VCOM = $(MODELSIM_DIR)/bin/vcom
 VLOG = $(MODELSIM_DIR)/bin/vlog
@@ -81,7 +81,7 @@ work_library: $(LIB_WORK) $(WORK_OBJECTS)
 #	$(V)$(VLOG) -work $(LIB_WORK) +incdir+$(WORK_DIR) -nocovercells -O0 $^
 $(WORK_OBJECTS): $(WORK_SOURCES)
 	$(V)$(VLOG) -work $(LIB_WORK) +incdir+$(WORK_DIR) -nocovercells -O0 $?
-	
+
 $(LIB_WORK) :
 	$(V)echo "creating library $@ ..."
 	$(V)$(VLIB) $(LIB_WORK)
@@ -133,7 +133,7 @@ print_work_sources:
 
 print_test_sources:
 	$(V)@echo $(TEST_SOURCES)
-	
+
 print_work_objects:
 	$(V)@echo $(WORK_OBJECTS)
 
